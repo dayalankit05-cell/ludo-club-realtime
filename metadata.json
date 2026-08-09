@@ -1,0 +1,6 @@
+{
+  "name": "Ludo Club - Realtime 4 Player Ludo",
+  "description": "Modern 4-Player Realtime Multiplayer Ludo game with Room Codes, glassmorphism UI, audio effects, chat, and AI bot options.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
