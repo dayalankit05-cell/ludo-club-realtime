@@ -27,11 +27,10 @@ export default function App() {
   useEffect(() => {
     let isComponentMounted = true;
 
-    function connectWs() {
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const wsUrl = `${protocol}//${window.location.host}/ws`;
+function connectWs() {
+  const wsUrl = 'wss://ludo-club-realtime.onrender.com/ws';
 
-      try {
+          try {
         const ws = new WebSocket(wsUrl);
         wsRef.current = ws;
 
@@ -102,7 +101,9 @@ export default function App() {
 
     const interval = setInterval(async () => {
       try {
-        const res = await fetch(`/api/room/${gameState.roomId}`);
+        const res = await fetch(
+  `https://ludo-club-realtime.onrender.com/api/room/${gameState.roomId}`
+);
         if (res.ok) {
           const data = await res.json();
           if (data.state) {
@@ -125,7 +126,7 @@ export default function App() {
 
     // HTTP REST Fallback if WebSocket is not open
     try {
-      const res = await fetch('/api/action', {
+      const res = await fetch('https://ludo-club-realtime.onrender.com/api/action', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ msg, color: myColor }),
